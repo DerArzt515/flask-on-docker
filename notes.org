@@ -1,0 +1,52 @@
+#+TITLE: Project Notes
+
+* Guide that this project was based on:
+
+ [[https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/][testdriven io's dockerizing flask guide]] 
+
+ 
+* Docker commands
+
+** docker-compose
+
+*** docker-compose build
+    build the newest changes
+
+*** docker-compose up -d
+    start docker compose but put into background after startup finishes
+
+*** docker-compose down
+    tear down
+    
+*** docker-compose exec web python manage.py create_db
+    execute on the web container the command to create the db
+    as defined in the flask cli configuration that the app uses
+    
+    docker-compose exec <container> <command>
+   
+*** docker-compose exe db psql --username=hello_flask --dbname=hello_flask_dev
+    open the psql terminal client that allows you to interact with the 
+    containerized db
+    
+**** Some commands here
+     |--------------+------------------------|
+     | command      | description            |
+     |--------------+------------------------|
+     | \l           | list the databases     |
+     |--------------+------------------------|
+     | \c <db_name> | connect to the db_name |
+     |              | (after which you can   |
+     |              | start doing queries)   |
+     |--------------+------------------------|
+     | \q           | quit                   |
+     |--------------+------------------------|
+
+     
+*** docker-compose down -v
+    brind down the containers and the associated volumes (indicated by -v)
+    
+*** docker-compose -f docker-compose.prod.yml up -d --build
+    build the prod image and startup the containers
+    
+*** docker-compose -f docker-compose.prod.yml logs -f
+    check the logs in the event of a failure
