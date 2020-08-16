@@ -4,7 +4,6 @@
 
  [[https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/][testdriven io's dockerizing flask guide]] 
 
- 
 * Docker commands
 
 ** docker-compose

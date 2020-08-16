@@ -22,7 +22,7 @@ class User(db.Model):
 
 @app.route('/')
 def hello_world():
-    return jsonify(hello='world')
+    return "Hello World"
 
 
 @app.route('/static/<path:filename>')
