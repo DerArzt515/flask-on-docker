@@ -50,3 +50,6 @@
     
 *** docker-compose -f docker-compose.prod.yml logs -f
     check the logs in the event of a failure
+    
+*** docker-compose -f docker-compose.prod.yml down -v
+    bring down the prod docker images and it's containers
